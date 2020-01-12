@@ -16,3 +16,26 @@ Owino Lawrence Odhiambo
 
 ## Setup and Installation
 To get the project
+
+Clone this repo {https://github.com/owinolawrence/awwards.git}
+
+### Navigate into the folder and install requirements
+cd The-Gram pip install -r requirements.txt 
+### Install and activate Virtual
+- python3 -m venv virtual - source virtual/bin/activate  
+### Install Dependencies
+pip install -r requirements.txt 
+### Setup Database
+SetUp your database User,Password, Host then make migrate
+
+python manage.py makemigrations Awards
+### Now Migrate
+
+python manage.py migrate 
+### Run the application
+python manage.py runserver 
+Running the application
+python manage.py server 
+### Testing the application
+python manage.py test 
+Open the application on your browser 127.0.0.1:8000.
