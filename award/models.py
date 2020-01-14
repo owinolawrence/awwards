@@ -12,6 +12,6 @@ class Project(models.Model):
         return self.caption
 
 
-    # @classmethod
-    # def search_by_title(cls,search_term):
-    #     award = cls.object
+    @classmethod
+    def search_by_title(cls,search_term):
+        award = cls.object
