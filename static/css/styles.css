@@ -1,3 +1,13 @@
 h1{
-    color:blue;
+    color:white;
+    text-align: center;
+    font-family: 'Kumar One', cursive;
+    text-transform: uppercase;
+}
+
+body{
+  background-image: url('https://cdn.pixabay.com/photo/2015/05/15/14/47/computer-768696__340.jpg'); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  
 }
