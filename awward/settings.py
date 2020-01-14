@@ -16,7 +16,7 @@ import dj_database_url
 from decouple import config,Csv
 
 MODE=config("MODE", default="dev")
-SECRET_KEY = config('SECRET_KEY')
+# SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 # development
 if config('MODE')=="dev":
@@ -52,11 +52,12 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = '5^7zv-n#w)iv1ngzd6etczszph7#yq+aaf6dn8p5mds7g6v2e0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-SECRET_KEY =config("SECRET_KEY", default="5^7zv-n#w)iv1ngzd6etczszph7#yq+aaf6dn8p5mds7g6v2e0") 
+ALLOWED_HOSTS = []
 
 
 # Application definition
