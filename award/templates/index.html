@@ -12,6 +12,23 @@
     {% block content%}
 
     <h1>Welcome to award hub.com</h1>
+
+    {% for project_item in projects %}
+
+  <div class="row">
+    
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <h2 class="text-center"> {{ projcte_item.title }} </h2>
+    </div>
+
+    
+    
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <img src="{{project_item.project_image.url}}" class="img-responsive" alt="Image">
+    </div>
+
+  </div>
+  {% endfor%}
     </container-fluid>
     {% endblock %}
 </body>

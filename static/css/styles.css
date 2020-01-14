@@ -9,5 +9,6 @@ body{
   background-image: url('https://cdn.pixabay.com/photo/2015/05/15/14/47/computer-768696__340.jpg'); 
   background-size: cover;
   background-repeat: no-repeat;
+  height: 20vh;
   
 }
