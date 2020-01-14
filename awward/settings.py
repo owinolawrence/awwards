@@ -56,7 +56,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+SECRET_KEY =config("SECRET_KEY", default="5^7zv-n#w)iv1ngzd6etczszph7#yq+aaf6dn8p5mds7g6v2e0") 
 
 
 # Application definition
