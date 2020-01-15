@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container" style="margin-left: 250px; max-width: 80vh; margin-top: 20vh;">
+    <div class="card-rows">
+        <div class="card">
+
+            <div class="content-section">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+
+                        <div class="card">
+                            <div class="card-body">
+                                {{ form|crispy }}
+                                <button type="submit" class="btn btn-dark" value="Save"> Submit</button>
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                </form>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

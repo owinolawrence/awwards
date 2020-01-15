@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{{block.super}}
+
+
+<div class="container">
+
+    <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel" class="overflow-auto">
+
+        <div class="carousel-caption">
+
+
+        </div>
+
+        <!--/.Indicators-->
+        <!--Slides-->
+        <div class="carousel-inner" role="listbox">
+            <!--First slide-->
+            <div class="carousel-item active">
+
+                <img width="1342" height="550" src="{{post.landing_page.url}}">
+            </div>
+            <!--/First slide-->
+            <!--Second slide-->
+            <div class="carousel-item">
+                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(136).jpg"
+                    alt="Second slide">
+            </div>
+            <!--/Second slide-->
+            <!--Third slide-->
+            <div class="carousel-item">
+                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(137).jpg"
+                    alt="Third slide">
+            </div>
+            <!--/Third slide-->
+        </div> <br>
+        <!--/.Slides-->
+        <div class="jumbotron" style="background-color: azure;">
+
+            {% if post %}
+            <button class="btn btn-dark">{{post.languages}}</button>
+
+            {% endif %}
+
+
+        </div>
+        <!--/.Controls-->
+    </div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="jumbotron">
+
+    <div class="card-columns">
+
+
+
+
+
+
+        <div class="card">
+            <div class="view overlay zoom">
+                <img src="{{post.landing_page.url}}" class="img-fluid " alt="zoom">
+                <div class="mask flex-center rgba-stylish-light">
+                    <p class="white-text">Strong overlay</p>
+
+                    <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+                        <div>
+                            <h5 class="pink-text"><i class="fas fa-chart-pie"></i> Vote</h5>
+                            <h3 class="card-title pt-2"><strong>This is card title</strong></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat, laboriosam,
+                                voluptatem,
+                                optio vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum
+                                dignissimos.
+                                Odit sed qui, dolorum!.</p>
+                            <a class="btn btn-pink"><i class="fas fa-clone left"></i> View project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr> <br><br>
+
+            <div class="card-body">
+                <h5 class="card-title">Panel title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Panel subtitle</h6>
+                <p class="card-text">Some quick example text to build on the panel title and make up the bulk of the
+                    panel's content.</p>
+                <a href="#!" class="card-link">Card link</a>
+                <a href="#!" class="card-link">Another link</a>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}

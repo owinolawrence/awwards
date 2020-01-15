@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load ratings %}
+{% block content %}
+
+<main role="main" class="container" style="margin-top: 13%; color: #000;">
+    <div class="card-columns">
+        <div class="">
+
+            <img src="{{post.user.profile.image.url}}" class="rounded-circle article-img" alt="">
+        </div>
+
+        <div class="card">
+            {% ratings post %}
+
+        </div>
+
+        <div class="card">
+            {% if post %}
+            <h4>Languages: </h4> {{post.languages}}
+            {% endif %}
+
+        </div>
+
+    </div>
+    <div class="media-body">
+        <div class="card">
+            <div class="article-metadata" style="text-align: center;">
+                <h4>{{post.user}} From; {{post.country.name}}</h4>
+                <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+            </div>
+
+        </div>
+
+    </div> <br>
+
+    <div class="row">
+        <div class="col-md-4">
+
+            <div class="view overlay zoom">
+
+
+                <img src="{{post.landing_page.url}}" class="card-img">
+                <div class="alert alert-{{message.tags}}">
+
+                </div>
+
+                <div class="mask flex-center rgba-stylish-light">
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-8">
+            <div class="card-columns " style="margin-left: 25%;">
+
+                <div class="content-section">
+
+                    <div class="view overlay zoom">
+
+                        <img src="{{post.screenshot_two.url}}" class="img-fluid " alt="zoom">
+
+
+                        <div class="mask flex-center rgba-stylish-light">
+                        </div>
+                    </div>
+                    <div class="view overlay zoom">
+
+
+                        <img src="{{post.screenshot_three.url}}" class="img-fluid " alt="zoom">
+                        <div class="mask flex-center rgba-stylish-light">
+                        </div>
+                    </div>
+                    <div class="view overlay zoom">
+                        <img src="{{post.screenshot_four.url}}" class="img-fluid " alt="zoom">
+
+                    </div>
+
+                    <div class="view overlay zoom">
+
+                        <img src="{{post.screenshot_one.url}}" class="img-fluid " alt="zoom">
+
+
+                        <div class="mask flex-center rgba-stylish-light">
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}

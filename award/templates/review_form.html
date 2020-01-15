@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<main role="main" class="container" style="margin-top: 5%; color: #000;">
+    <img src="{{post.user.profile.image.url}}" class="rounded-circle article-img" alt="">
+    <div class="media-body">
+        <div class="article-metadata">
+            <h2 class="mr-2" style="color: bisque;"><a href="{% url 'post-detail' post.id %}">{{ post.user }}</a></h2>
+            <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+
+
+                <img src="{{post.landing_page.url}}" class="card-img">
+                <div class="alert alert-{{message.tags}}">
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+                <div class="content-section" style="background-color:  rgb(90, 69, 17);">
+
+                    <form action="#" method="POST">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            <legend class="border-bottom mb-4" style="text-align: center;">Rate</legend>
+                            <div class="card" style="background-color: rgb(90, 69, 17);">
+                                <div class="card-body" style="background-color: rgb(90, 69, 17);">
+                                    {{ form|crispy }}
+                                    <button type="submit" value="Save" class="btn btn-dark">Submit</button>
+                                </div>
+
+                            </div>
+                        </fieldset>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+</main>
+
+{% endblock %}

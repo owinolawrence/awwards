@@ -1,0 +1,188 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144351462-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-144351462-1');
+        </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+    <title> Artistco </title>
+    {% endif %}
+
+    {% block styles %}
+
+
+
+<!-- JQuery -->
+
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
+
+
+
+    {% endblock %}
+</head>
+
+<body>
+
+
+    {% block content %}
+
+{% include 'post/navbar.html'%}
+
+
+            
+
+
+
+
+
+
+
+
+    {%endblock%}
+
+    {% block scripts %}
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js"></script>
+
+
+
+
+<script>
+            if('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('/sw.js');
+                });
+            }
+           
+
+
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.materialboxed');
+            var instances = M.Materialbox.init(elems, options);
+        });
+
+        // Or with jQuery
+
+        $(document).ready(function () {
+            $('.materialboxed').materialbox();
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.slider');
+            var instances = M.Slider.init(elems, options);
+        });
+
+        // Or with jQuery
+
+        $(document).ready(function () {
+            $('.slider').slider();
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.dropdown-trigger');
+            var instances = M.Dropdown.init(elems, options);
+        });
+
+        // Or with jQuery
+
+        $('.dropdown-trigger').dropdown();
+
+
+
+
+
+
+
+$(window).scroll(function(e) {
+
+// add/remove class to navbar when scrolling to hide/show
+var scroll = $(window).scrollTop();
+if (scroll >= 150) {
+    $('.navbar').addClass("navbar-hide");
+} else {
+    $('.navbar').removeClass("navbar-hide");
+}
+
+});
+
+
+
+
+
+if ( $(window).width() > 769) {   
+var mywindow = $(window);
+var mypos = mywindow.scrollTop();
+var up = false;
+var newscroll;
+mywindow.scroll(function () {
+    newscroll = mywindow.scrollTop();
+    if (newscroll > mypos && !up) {
+        $('.slidd').stop().fadeOut(730);
+        up = !up;
+        console.log(up);
+    } else if(newscroll < mypos && up) {
+        $('.slidd').stop().fadeIn(300);
+        up = !up;
+    }
+    mypos = newscroll;
+});
+}
+
+
+function myFunction(){
+    var copyText = document.getElementById("myInput");
+
+    copyText.select();
+    document.execCommand('copy');
+
+    alert('Copied: ' + copyText.value);
+}
+
+
+
+
+
+
+    </script>
+
+
+  
+
+
+
+    {% endblock %}
+
+</body>
+
+</html>

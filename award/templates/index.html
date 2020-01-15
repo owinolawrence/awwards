@@ -58,11 +58,9 @@
                 {% endif %}
                 {% for comment in post.review_set.all %}
 
-
                 <h5 class="card-title">{{comment.user}}</h5>
                 overall rating:{% if comment%}
                 {{comment.total}}%
-
 
                 {% endif %}
                 <h6 class="card-subtitle mb-2 text-muted">{{ comment.created_date }}</h6>
