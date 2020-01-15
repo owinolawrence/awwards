@@ -5,7 +5,7 @@ from . import views
 
 
 urlpatterns=[
-    url('',views.index, name= 'index'),
+    url('^$',views.index, name= 'index'),
     url(r'^search/', views.search_results, name='search_results'),
     url('detail/<int:pk>/',views.PostDetailView.as_view(), name ='post-detail'),
     url('post/new/',views.PostCreateView.as_view(), name ='post-create'),
