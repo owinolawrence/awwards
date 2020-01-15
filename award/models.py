@@ -71,3 +71,38 @@ class Post(models.Model):
         return post
 
 
+class Review(models.Model):
+
+    user = models.ForeignKey(User,on_delete=models.CASCADE,to_field=None)
+    post = models.ForeignKey(Post,on_delete=models.CASCADE,to_field=None)
+    design = models.IntegerField(choices=CHOICES,default=0)
+    usability= models.IntegerField(choices=CHOICES,default=0)
+    content =  models.IntegerField(choices=CHOICES,default=0)
+
+    def __int__(self):
+        return self.total
+
+    class Meta:
+        unique_together = (('user','design','usability','content','post'),)
+        index_together = (('user','design','usability','content','post'),)
+
+        ordering = ['-id']
+
+    def save_review(self):
+        self.save()
+
+    def _get_total(self):
+
+       "Returns the total"
+       return (self.design + self.usability + self.content) * 0.33
+    
+    total = property(_get_total)
+     
+
+
+
+
+    @classmethod
+    def get_reviews(cls,id):
+        reviews = cls.objects.all()
+        return reviews
