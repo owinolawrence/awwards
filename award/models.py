@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
-from users.models import Profile
 from django.urls import reverse
 import datetime
 from django_countries.fields import CountryField
@@ -106,3 +105,13 @@ class Review(models.Model):
     def get_reviews(cls,id):
         reviews = cls.objects.all()
         return reviews
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    image = models.ImageField(default = 'download.png', upload_to ='profile_pics/')
+
+    def __str__(self):
+        return f'{self.user.username} Profile'
+
+    def save_profile(self):
+        self.save()

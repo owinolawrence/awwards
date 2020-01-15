@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'registration/base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
 
@@ -23,15 +23,16 @@
             </div>
 
             <div class="col-md-6">
-                <div class="content-section" style="background-color:  rgb(90, 69, 17);">
+                <div class="content-section" style="background-color:  rgb(175, 173, 167);">
 
                     <form action="#" method="POST">
                         {% csrf_token %}
                         <fieldset class="form-group">
                             <legend class="border-bottom mb-4" style="text-align: center;">Rate</legend>
-                            <div class="card" style="background-color: rgb(90, 69, 17);">
-                                <div class="card-body" style="background-color: rgb(90, 69, 17);">
+                            <div class="card" style="background-color: rgb(26, 65, 194);">
+                                <div class="card-body" style="background-color: rgb(19, 115, 226);">
                                     {{ form|crispy }}
+                                    <br>
                                     <button type="submit" value="Save" class="btn btn-dark">Submit</button>
                                 </div>
 

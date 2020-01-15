@@ -33,7 +33,7 @@
                 </h5>
                 <h3 class="card-title pt-2"><strong>{{post.title}}</strong></h3>
                 <p>{{post.description}}</p>
-                <a class="btn btn-pink" href="{% url 'post-detail'  %}"><i class="fas fa-clone left"></i> View
+                <a class="btn btn-pink" href=" post-detail/{{post.pk}}"><i class="fas fa-clone left"></i> View
                   project</a>
 
               </div>
@@ -51,7 +51,7 @@
                 <a href="{{post.live_link}}">check out link</a> <br>
                 {{post.country.name}}
                 {% if current_user == post.user %}
-                <h2 class="mr-2" style="font-size: large;"><a href="{% url 'post-detail'  %}">{{ post.user }}</a>
+                <h2 class="mr-2" style="font-size: large;"><a href="detail/{{post.id}} ">{{ post.user }}</a>
                 </h2>
 
                 <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>

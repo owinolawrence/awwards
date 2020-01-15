@@ -10,7 +10,7 @@ from rest_framework.decorators import action
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.renderers import TemplateHTMLRenderer
-
+from .forms import ReviewForm
 import random
 from django.contrib.auth.decorators import login_required
 
@@ -79,9 +79,9 @@ class ReviewViewSet(viewsets.ModelViewSet):
 
 
 
-def rate(request,pk):
+def rate(request, post_id):
     current_user = request.user
-    post = Post.objects.get(pk=pk)
+    post = Post.objects.get(pk=post_id)
     review = Review.get_reviews(post.id)
     form = ReviewForm(request.POST)
  
@@ -92,7 +92,7 @@ def rate(request,pk):
             review.post = post
             review.post_id = post.id
             review.save()
-            return redirect('home')
+            return redirect('index')
 
         else:
             form = ReviewForm()
