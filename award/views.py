@@ -15,7 +15,7 @@ import random
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-
+@login_required
 def index(request):
     post = Post.objects.all()
     posts = post[::-1]
@@ -98,9 +98,6 @@ def rate(request,pk):
             form = ReviewForm()
 
     return render(request, 'review_form.html',{'form':form, 'post':post, 'comments':review})            
-
-
-
 
 
 
