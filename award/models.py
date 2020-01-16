@@ -30,7 +30,7 @@ CHOICES = (1, 1),(2, 2),(3, 3),(4, 4),(5, 5),(6, 6),(7, 7),(8, 8),(9, 9),(10, 10
 
 class Post(models.Model):
 
-    # profile_user = models.ForeignKey(Profile,on_delete=models.CASCADE,to_field=None)
+   
     title = models.CharField(max_length = 30)
     live_link = models.URLField()
     description = models.TextField()

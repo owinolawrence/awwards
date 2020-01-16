@@ -10,7 +10,7 @@ from rest_framework.decorators import action
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.renderers import TemplateHTMLRenderer
-from .forms import ReviewForm
+from .forms import ReviewForm,CreatePostForm
 import random
 from django.contrib.auth.decorators import login_required
 
@@ -23,14 +23,14 @@ def index(request):
     # random_post = posts[landing]
 
     return render(request, 'index.html',{'post':post})
-
 class PostDetailView(DetailView):
+
     model = Post
    
 class PostCreateView(CreateView):
     model = Post
     fields = ('__all__')
-
+   
     def form_valid(self, form):
         form.instance.account_user= self.request.user
         form.instance.profile_user= Profile.objects.get(id=self.request.user.profile.id)
@@ -102,3 +102,15 @@ def detail(request, postid):
         post = None
 
     return render(request, 'post_detail.html', {'post':post})
+
+def create(request):
+    if request == 'POST':
+        form = CreatePostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit = False)
+            post.user = request.user
+            post.save()
+            return redirect('index')
+    else:    
+        form = CreatePostForm()
+    return render(request, 'post_form.html', {'form':form})
