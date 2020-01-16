@@ -53,5 +53,5 @@ If you have any question or contributions, please email me at [owinolawrence21@g
 
 ## License
 .Copyright (c) 2019 owino lawrence
-.license [AMIT]
+.license [MIT]
 
