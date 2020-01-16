@@ -73,7 +73,7 @@ def rate(request, post_id):
             review.user = current_user
             review.post = post
             review.post_id = post.id
-            review.save()
+            # review.save()
             return redirect('index')
 
         else:
