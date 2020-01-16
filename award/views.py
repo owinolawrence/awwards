@@ -22,18 +22,11 @@ def index(request):
     # landing = random.randint(0,len(post)-1)
     # random_post = posts[landing]
 
-    
-
     return render(request, 'index.html',{'post':post})
-
-
 
 class PostDetailView(DetailView):
     model = Post
-    
-
-
-
+   
 class PostCreateView(CreateView):
     model = Post
     fields = ('__all__')
@@ -41,12 +34,10 @@ class PostCreateView(CreateView):
     def form_valid(self, form):
         form.instance.account_user= self.request.user
         form.instance.profile_user= Profile.objects.get(id=self.request.user.profile.id)
-        
-
+      
         form.save()
 
-
-        return redirect('home')
+        return redirect('index')
 
 
 class PostViewSet(viewsets.ModelViewSet):
@@ -56,8 +47,6 @@ class PostViewSet(viewsets.ModelViewSet):
 
     permission_classes = (IsAuthenticated,)
 
-   
-
 class ProfileViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
 
@@ -65,18 +54,11 @@ class ProfileViewSet(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 
-
-   
-
- 
 class ReviewViewSet(viewsets.ModelViewSet):
     queryset = Review.objects.all()
     # serializer_class = ReviewSerializer
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
-
-
-
 
 
 def rate(request, post_id):
@@ -100,20 +82,15 @@ def rate(request, post_id):
     return render(request, 'review_form.html',{'form':form, 'post':post, 'comments':review})            
 
 
-
-
-
-
 @login_required
 def search_results(request):
-
-    if 'project' in request.GET and request.GET["project"]:
-        search_term = request.GET.get("project")
-        searched_projects = Project.search_by_title(search_term)
-        message = f"{search_term}"
-
-        return render(request, 'search.html',{"message":message,"projects": searched_projects})
+    if 'title' in request.GET and request.GET['title']:
+        title = request.GET.get("title")
+        searched_user = Post.get_post(title) 
+        message = f'No project found for the search term: {title}'
+        return render (request,'post/search.html',{"message":message,"post":searched_user})
 
     else:
-        message = "You haven't searched for any term"
-        return render(request, 'search.html',{"message":message})
+        message = "You haven't searched for any name"
+
+    return render(request,'search.html',{'message':message})

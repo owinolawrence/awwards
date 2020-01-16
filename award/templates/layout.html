@@ -29,7 +29,7 @@
 <!-- JQuery -->
 
 
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href= "/static/css/styles.css">
 
 
 <!-- Font Awesome -->
@@ -51,16 +51,6 @@
 
 {% include 'post/navbar.html'%}
 
-
-            
-
-
-
-
-
-
-
-
     {%endblock%}
 
     {% block scripts %}
@@ -73,20 +63,13 @@
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js"></script>
 
-
-
-
 <script>
             if('serviceWorker' in navigator) {
                 window.addEventListener('load', function() {
                     navigator.serviceWorker.register('/sw.js');
                 });
             }
-           
-
-
-
-
+          
         document.addEventListener('DOMContentLoaded', function () {
             var elems = document.querySelectorAll('.materialboxed');
             var instances = M.Materialbox.init(elems, options);
@@ -118,12 +101,6 @@
 
         $('.dropdown-trigger').dropdown();
 
-
-
-
-
-
-
 $(window).scroll(function(e) {
 
 // add/remove class to navbar when scrolling to hide/show
@@ -135,9 +112,6 @@ if (scroll >= 150) {
 }
 
 });
-
-
-
 
 
 if ( $(window).width() > 769) {   
@@ -169,17 +143,7 @@ function myFunction(){
     alert('Copied: ' + copyText.value);
 }
 
-
-
-
-
-
     </script>
-
-
-  
-
-
 
     {% endblock %}
 

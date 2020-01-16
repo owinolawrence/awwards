@@ -99,8 +99,6 @@ class Review(models.Model):
      
 
 
-
-
     @classmethod
     def get_reviews(cls,id):
         reviews = cls.objects.all()
