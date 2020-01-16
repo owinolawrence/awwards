@@ -94,3 +94,11 @@ def search_results(request):
         message = "You haven't searched for any name"
 
     return render(request,'search.html',{'message':message})
+
+def detail(request, postid):
+    try:
+        post = Post.objects.filter(id = postid)
+    except Post.DoesNotExist:
+        post = None
+
+    return render(request, 'post_detail.html', {'post':post})
