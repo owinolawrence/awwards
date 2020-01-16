@@ -1,6 +1,7 @@
 {% extends 'registration/base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
-{% if post %}
+
 <main role="main" class="container" style="margin-top: 13%; color: #000;">
     <div class="card-columns">
         <div class="">
@@ -9,13 +10,14 @@
         </div>
 
         <div class="card">
+          
 
         </div>
 
         <div class="card">
-
+            {% if post %}
             <h4>Languages: </h4> {{post.languages}}
-
+            {% endif %}
 
         </div>
 
@@ -92,7 +94,5 @@
     </div>
 
 </main>
-{%else%}
-<p>Post not found</p>
-{% endif %}
+
 {% endblock %}
