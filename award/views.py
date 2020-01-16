@@ -15,7 +15,7 @@ import random
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-
+@login_required
 def index(request):
     post = Post.objects.all()
     posts = post[::-1]
@@ -60,7 +60,7 @@ class ReviewViewSet(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 
-
+@login_required
 def rate(request, post_id):
     current_user = request.user
     post = Post.objects.get(pk=post_id)
@@ -94,7 +94,7 @@ def search_results(request):
         message = "You haven't searched for any name"
 
     return render(request,'search.html',{'message':message})
-
+@login_required
 def detail(request, postid):
     try:
         post = Post.objects.filter(id = postid)
@@ -102,7 +102,7 @@ def detail(request, postid):
         post = None
 
     return render(request, 'post_detail.html', {'post':post})
-
+@login_required
 def create(request):
     if request == 'POST':
         form = CreatePostForm(request.POST, request.FILES)
